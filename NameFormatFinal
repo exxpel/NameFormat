@@ -1,0 +1,165 @@
+package nameformat;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
+import javafx.geometry.Pos;
+import javafx.geometry.Insets;
+
+public class NameFormat extends Application
+{
+    private Label firstName;
+    private Label middleName;
+    private Label lastName;
+    private Label Title;
+    private Label answer;
+    private TextField fnameText;
+    private TextField mnameText;
+    private TextField lnameText;
+    private TextField titleText;
+    
+    public static void main(String[] args)
+    {
+        // Launch the app
+        launch(args);
+    }
+    
+    @Override
+    public void start(Stage primaryStage)
+    {
+        firstName = new Label("First name:");
+        middleName = new Label("Middle name:");
+        lastName = new Label("Last name:");
+        Title = new Label("Title:");
+        answer = new Label("");
+        fnameText = new TextField();
+        mnameText = new TextField();
+        lnameText = new TextField();
+        titleText = new TextField();
+        Button myButton1 = new Button("Format 1");
+        myButton1.setOnAction(new ButtonClickHandler1());
+        Button myButton2 = new Button("Format 2");
+        myButton2.setOnAction(new ButtonClickHandler2());
+        Button myButton3 = new Button("Format 3");
+        myButton3.setOnAction(new ButtonClickHandler3());
+        Button myButton4 = new Button("Format 4");
+        myButton4.setOnAction(new ButtonClickHandler4());
+        Button myButton5 = new Button("Format 5");
+        myButton5.setOnAction(new ButtonClickHandler5());
+        Button myButton6 = new Button("Format 6");
+        myButton6.setOnAction(new ButtonClickHandler6());
+        
+        //Scene 1 (text)
+        HBox hbox1 = new HBox(10, firstName, fnameText);
+        hbox1.setAlignment(Pos.CENTER);
+        HBox hbox2 = new HBox(10, middleName, mnameText);
+        hbox2.setAlignment(Pos.CENTER);
+        HBox hbox3 = new HBox(10, lastName, lnameText);
+        hbox3.setAlignment(Pos.CENTER);
+        HBox hbox4 = new HBox(10, Title, titleText);
+        hbox4.setAlignment(Pos.CENTER);
+        VBox vbox0 = new VBox(10, hbox1,hbox2,hbox3,hbox4);
+        vbox0.setPadding(new Insets(10));
+        vbox0.setAlignment(Pos.CENTER);
+        
+        //Scene 2 (buttons)
+        HBox hbox0 = new HBox(10,
+                myButton1,myButton2,myButton3,
+                myButton4,myButton5,myButton6);
+        hbox0.setAlignment(Pos.CENTER);
+        
+        //Scene 3 (answer)
+        HBox hboxa = new HBox(10, answer);
+        hboxa.setPadding(new Insets(10));
+        
+        //Main Scene 
+        VBox vbox00 = new VBox(vbox0, hbox0, hboxa);
+        Scene scene1 = new Scene(vbox00, 450, 220);
+        //Call Scene
+        primaryStage.setScene(scene1);
+        primaryStage.setTitle("Format Name");
+        primaryStage.show();
+
+    }
+
+    //Button Click
+    class ButtonClickHandler1 implements EventHandler<ActionEvent>
+            {
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    String a = (fnameText.getText());
+                    String b = (mnameText.getText());
+                    String c = (lnameText.getText());
+                    String d = (titleText.getText());
+                    answer.setText(d + " " + a + " " + b + " " + c);
+                }
+            }
+    class ButtonClickHandler2 implements EventHandler<ActionEvent>
+            {
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    String a = (fnameText.getText());
+                    String b = (mnameText.getText());
+                    String c = (lnameText.getText());
+                    String d = (titleText.getText());
+                    answer.setText(a + " " + b + " " + c);
+                }
+            }    
+    class ButtonClickHandler3 implements EventHandler<ActionEvent>
+            {
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    String a = (fnameText.getText());
+                    String b = (mnameText.getText());
+                    String c = (lnameText.getText());
+                    String d = (titleText.getText());
+                    answer.setText(a + " " + c);
+                }
+            }    
+    class ButtonClickHandler4 implements EventHandler<ActionEvent>
+            {
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    String a = (fnameText.getText());
+                    String b = (mnameText.getText());
+                    String c = (lnameText.getText());
+                    String d = (titleText.getText());
+                    answer.setText(c + ", " + a + " " + b + ", " + d);
+                }
+            }
+    class ButtonClickHandler5 implements EventHandler<ActionEvent>
+            {
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    String a = (fnameText.getText());
+                    String b = (mnameText.getText());
+                    String c = (lnameText.getText());
+                    String d = (titleText.getText());
+                    answer.setText(c + ", " + a + " " + b);
+                }
+            }
+    class ButtonClickHandler6 implements EventHandler<ActionEvent>
+            {
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    String a = (fnameText.getText());
+                    String b = (mnameText.getText());
+                    String c = (lnameText.getText());
+                    String d = (titleText.getText());
+                    answer.setText(c + ", " + a);
+                }
+            }
+
+}
